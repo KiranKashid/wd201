@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html en>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+
+<body style="background-image: url(https://www.tenderkings.com/public/frontend/images/registration.jpg);text-align: center;background-size: 2000px;">
+    <div class="outer-box" style="width: 100vw;height: 200vh;">
+    <div class="inner-box" style="margin: 1 auto; border-radius: 15px;">
+    <header class="signup-header">
+        <h1 style="background-color: rgb(168, 89, 101);font-style: oblique;">REGISTRATION FORM</h1>
+    </header> 
+    <main class="signup-body">
+<form id="user-form">
+        <p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"required>
+        </p>
+        <p>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        </p>
+        <p>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        </p>
+        <p>
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+        </p>
+        <p>
+        <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+        <label for="acceptTerms">Accept Terms & Conditions</label>
+        </p>
+        <p>
+        <button type="submit">Submit</button>
+        <p>
+</form>
+</main> 
+</div>
+<div class="circle c1"></div>
+<div class="entries">
+    <h3 class="center"><span>ENTERIES</span></h3>
+    <div id="table"></div>
+</div>
+</div>
+<div id="user-entries"></div>
+<script src="index.js"></script>
+</body>
+</html>
