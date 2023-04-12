@@ -2,81 +2,41 @@ const todoList = () => {
   all = []
   const add = (todoItem) => {
     all.push(todoItem)
-  }
+  };
   const markAsComplete = (index) => {
     all[index].completed = true
-  }
+  };
 
   const overdue = () => {
-    let overdueCheck = []
-    all.forEach((itm) => {
-        if(itm.dueDate === yesterday && itm.completed === false){
-            overdueCheck.push(itm);
-        }
-    })
-    return overdueCheck.reverse();
+    const k = new Date();
     // Write the date check condition here and return the array
     // of overdue items accordingly.
-  }
+    return all.filter((task) => task.kDate < k.toLocaleDateString("en-CA"));
+  };
 
   const dueToday = () => {
-    let dueTodayCheck = []
-    all.forEach((itm) => {
-        if(itm.dueDate === today){
-            dueTodayCheck.push(itm);
-        }
-    })
+   const k = new Date();
     // Write the date check condition here and return the array
-    return dueTodayCheck.reverse();
     // of todo items that are due today accordingly.
-  }
+    return all.filter((task) => task.kDate == k.toLocaleDateString("en-CA"));
+  };
 
   const dueLater = () => {
-    let dueLaterCheck = []
-    all.forEach((itm) => {
-        if(itm.dueDate === tomorrow){
-            dueLaterCheck.push(itm);
-        }
-    })
+    const k = new Date();
     // Write the date check condition here and return the array
-    return dueLaterCheck.reverse();
-    // of todo items that are due later accordingly.
-  }
+   // of todo items that are due later accordingly.
+   return all.filter((task) => task.kDate > k.toLocaleDateString("en-CA"));
+  };
 
   const toDisplayableList = (list) => {
-    let outputarr = [];
-    list.forEach((itm,index) => {
-        if(itm.dueDate === yesterday)
-        {
-          if(itm.completed === true)
-          {
-              outputarr.push("[x]" + " " + itm.title + " " + itm.dueDate);
-          }
-          else{
-              outputarr.push("[ ]" + " " + itm.title + " " + itm.dueDate);
-          }
-        }
-        if(itm.dueDate === today){
-          delete itm.dueDate;
-          if(itm.completed === true)
-           {
-              outputarr.push("[x]" + " " + itm.title);
-           }
-           else{
-              outputarr.push("[ ]" + " " + itm.title);
-           }
-        }
-        if(itm.dueDate === tomorrow)
-        {
-            outputarr.push("[ ]" + " " + itm.title + " " + itm.dueDate);
-        }
-    })
-    outputarr.reverse();
-    let val = outputarr.join("\n");
-    return val;
+    return list
+     .map(
+        (todo) => ${todo.completed ? '[x]' : '[ ]'} ${todo.title} ${todo.dueDate === today ? '' : todo.dueDate}`,
+      )
+      .join('\n');
+  };
     // Format the To-Do list here, and return the output string
     // as per the format given above.
-  }
 
   return {
     all,
