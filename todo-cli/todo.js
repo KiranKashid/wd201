@@ -1,5 +1,7 @@
+
+//eslint disable no-undef
 const todoList = () => {
-  all = []
+  let all = []
   const add = (todoItem) => {
     all.push(todoItem)
   };
@@ -12,7 +14,7 @@ const todoList = () => {
     const k = new Date();
     // Write the date check condition here and return the array
     // of overdue items accordingly.
-    return all.filter((task) => task.kDate < k.toLocaleDateString("en-CA"));
+    return all.filter((task) => task.dueDate < k.toLocaleDateString("en-CA"));
   };
 
 
@@ -20,7 +22,7 @@ const todoList = () => {
    const k = new Date();
     // Write the date check condition here and return the array
     // of todo items that are due today accordingly.
-    return all.filter((task) => task.kDate == k.toLocaleDateString("en-CA"));
+    return all.filter((task) => task.dueDate == k.toLocaleDateString("en-CA"));
   };
   
 
@@ -28,7 +30,7 @@ const todoList = () => {
     const k = new Date();
     // Write the date check condition here and return the array
    // of todo items that are due later accordingly.
-   return all.filter((task) => task.kDate > k.toLocaleDateString("en-CA"));
+   return all.filter((task) => task.dueDate > k.toLocaleDateString("en-CA"));
   };
 
 
